@@ -1,5 +1,5 @@
 //Load a book from disk
-function loadBook(filename,displayName){
+function loadBook(filename,displayName) {
     let currentBook = "";
     let url = "books/" + filename;
 
@@ -16,6 +16,9 @@ function loadBook(filename,displayName){
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             currentBook = xhr.responseText;
+
+            //remove line breaks and carriage returns and replace with <br>
+            currentBook = currentBook.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
             document.getElementById("fileContent").innerHTML = currentBook;
 
