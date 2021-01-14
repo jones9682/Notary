@@ -28,3 +28,24 @@ img {
     float: left;
     padding: 1rem;
 }
+
+.card-body {
+    background-color: #f4ffd1;
+}
+
+/* footer */
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color:#343a4036;
+    color: white;
+  }
+  
+  .footer-text {
+    clear: both;
+    font-size: 15px;
+    padding: 5px 0;
+    margin-top: 5px;
+    color: white;
+  }
