@@ -27,3 +27,29 @@ function loadBook(filename,displayName) {
         }
     };
 }
+
+//get the stats for selected book
+function getDocStats(fileContent) {
+
+    var docLength = document.getElementById("docLength");
+    var wordCount = document.getElementById("wordCount");
+    var charCount = document.getElementById("charCount");
+
+    let text = fileContent.toLowerCase();
+    let wordArry = text.match(/\b\S+\b/g);
+    
+    //Holds multiple key-value pairs
+    let wordDictionary = {};
+    
+    //Count every word in the wordArry
+    for( let word in wordArry){
+        let wordValue = wordArry[word];
+        if (wordDictionary[wordValue] > 0){
+            wordDictionary[wordValue] += 1;
+        }
+        else {
+            wordDictionary[wordValue] = 1;
+        }
+    }
+
+}
