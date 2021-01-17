@@ -17,6 +17,8 @@ function loadBook(filename,displayName) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             currentBook = xhr.responseText;
 
+            getDocStats(currentBook);
+
             //remove line breaks and carriage returns and replace with <br>
             currentBook = currentBook.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
@@ -93,5 +95,5 @@ function sortProperties(obj) {
 
     return rtnArray;
 
-    
+
 }
