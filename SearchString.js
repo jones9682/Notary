@@ -1,5 +1,5 @@
 //Load a book from disk
-function loadBook(filename,displayName) {
+function loadBook(filename, displayName) {
     let currentBook = "";
     let url = "books/" + filename;
 
@@ -10,7 +10,7 @@ function loadBook(filename,displayName) {
 
     //create a server a request to load our book
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true );
+    xhr.open("GET", url, true);
     xhr.send();
 
     xhr.onreadystatechange = function () {
@@ -19,7 +19,7 @@ function loadBook(filename,displayName) {
 
             getDocStats(currentBook);
 
-            //remove line breaks and carriage returns and replace with <br>
+            //remove line breaks and carriage returns and replace with a <br>
             currentBook = currentBook.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
             document.getElementById("fileContent").innerHTML = currentBook;
@@ -38,18 +38,18 @@ function getDocStats(fileContent) {
     var charCount = document.getElementById("charCount");
 
     let text = fileContent.toLowerCase();
-    let wordArry = text.match(/\b\S+\b/g);
+    let wordArray = text.match(/\b\S+\b/g);
     
     //Holds multiple key-value pairs
     let wordDictionary = {};
     
-    //Count every word in the wordArry
-    for( let word in wordArry){
-        let wordValue = wordArry[word];
-        if (wordDictionary[wordValue] > 0){
+    //Count every word in the wordArray
+    for( let word in wordArray){
+        let wordValue = wordArray[word];
+        if (wordDictionary[wordValue] > 0) {
             wordDictionary[wordValue] += 1;
-        }
-        else {
+        } else {
+
             wordDictionary[wordValue] = 1;
         }
     }
@@ -67,8 +67,8 @@ function getDocStats(fileContent) {
     ULTemplate(top5Words, document.getElementById("mostUsed"));
     ULTemplate(least5Words, document.getElementById("leastUsed"));
 
-    docLength.innerText = "Document Length:" + text.length;
-    wordCount.innerText = "Word Count:" + wordArry.length;
+    docLength.innerText = "Document Length: " + text.length;
+    wordCount.innerText = "Word Count: " + wordArray.length;
 
 }
 
@@ -78,7 +78,7 @@ function ULTemplate(items, element) {
     let resultsHTML = "";
 
     for (i = 0; i < items.length - 1; i++) {
-        resultsHTML += templateHTML.replace('{{val}}', items[i][0] + " : " + items[i[1]] + "time(s)");
+        resultsHTML += templateHTML.replace('{{val}}', items[i][0] + " : " + items[i][1] + "time(s)");
     }
 
     element.innerHTML = resultsHTML;
