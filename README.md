@@ -23,7 +23,6 @@ Notary: A coding project for searching through text in javascript
 ## Live App Link
 
 - [Notary Demo](https://jones9682.github.io/Notary/)
-)
 
 # Mobile screen capture
 
